@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tanji Beach Guesthouse — Verified · Kelloo (sample page)</title>
+<meta name="description" content="Sample Kelloo verified page: real prices, verified licence, direct WhatsApp booking.">
+<style>
+  :root{
+    --ink:#0d1b1e;--ink-soft:#3c5055;--sand:#f6f1e7;--white:#fff;
+    --red:#ce1126;--green:#3a7728;--gold:#c9922c;
+    --line:rgba(13,27,30,.13);--radius:16px;
+    --shadow:0 1px 2px rgba(13,27,30,.06),0 14px 34px -14px rgba(13,27,30,.22);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--sand);color:var(--ink);
+    font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+    line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  h1,h2,h3{margin:0 0 .4em;letter-spacing:-.025em;line-height:1.15}
+  .wrap{max-width:900px;margin:0 auto;padding:0 20px}
+
+  /* sample banner */
+  .sample-bar{
+    background:var(--ink);color:var(--sand);text-align:center;
+    font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    padding:9px 16px;
+  }
+  .sample-bar span{color:var(--gold)}
+
+  /* hero */
+  .hero{padding:22px 0 0}
+  .photo{
+    height:300px;border-radius:18px;position:relative;overflow:hidden;
+    background:
+      radial-gradient(600px 240px at 78% 8%,rgba(255,255,255,.4),transparent 60%),
+      linear-gradient(160deg,#14515c 0%,#2f7a3f 52%,#c9922c 100%);
+    box-shadow:var(--shadow);
+  }
+  .photo::after{
+    content:"";position:absolute;inset:auto -8% -46% -8%;height:78%;
+    background:radial-gradient(ellipse at 50% 0,rgba(255,255,255,.45),transparent 62%);
+  }
+  .photo .tag{
+    position:absolute;top:14px;left:14px;background:rgba(13,27,30,.72);color:#fff;
+    padding:7px 13px;border-radius:999px;font-size:.74rem;font-weight:800;letter-spacing:.04em;
+    backdrop-filter:blur(6px);
+  }
+  .head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;
+    margin:22px 0 6px;flex-wrap:wrap}
+  .head h1{font-size:clamp(1.6rem,4.4vw,2.2rem);font-weight:850}
+  .badge{
+    display:inline-flex;align-items:center;gap:7px;background:rgba(58,119,40,.1);
+    color:var(--green);border:1px solid rgba(58,119,40,.3);border-radius:999px;
+    padding:7px 14px;font-size:.78rem;font-weight:800;white-space:nowrap;
+  }
+  .meta{color:var(--ink-soft);font-size:.92rem;display:flex;gap:16px;flex-wrap:wrap;margin-bottom:26px}
+
+  /* layout */
+  .cols{display:grid;grid-template-columns:1.6fr .9fr;gap:26px;align-items:start;padding-bottom:70px}
+  .card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+    padding:24px;margin-bottom:18px;box-shadow:0 1px 2px rgba(13,27,30,.04)}
+  .card h2{font-size:1.06rem;font-weight:820;margin-bottom:10px}
+  .card p{color:var(--ink-soft);font-size:.95rem;margin:0 0 10px}
+  .card p:last-child{margin-bottom:0}
+
+  /* prices */
+  table{width:100%;border-collapse:collapse;font-size:.94rem}
+  th,td{text-align:left;padding:11px 4px;border-bottom:1px solid var(--line)}
+  th{font-size:.74rem;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-soft);font-weight:800}
+  tr:last-child td{border-bottom:0}
+  td.num{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+  .note{font-size:.84rem;color:var(--ink-soft);margin-top:10px}
+
+  /* verified box */
+  .checks{list-style:none;padding:0;margin:0;display:grid;gap:11px;font-size:.92rem}
+  .checks li{display:flex;gap:10px;align-items:flex-start;color:var(--ink-soft)}
+  .checks .tick{flex:0 0 auto;width:20px;height:20px;border-radius:50%;background:rgba(58,119,40,.13);
+    color:var(--green);display:grid;place-items:center;font-size:.68rem;font-weight:900;margin-top:2px}
+  .stamp{font-size:.78rem;color:var(--ink-soft);margin-top:14px;padding-top:12px;border-top:1px dashed var(--line)}
+
+  /* booking card */
+  .book{position:sticky;top:18px}
+  .book .price{font-size:2rem;font-weight:850;letter-spacing:-.04em;line-height:1}
+  .book .price small{font-size:.82rem;font-weight:600;letter-spacing:0;color:var(--ink-soft)}
+  .btn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;
+    padding:14px 18px;border-radius:12px;font-weight:800;font-size:.98rem;text-decoration:none;
+    border:1px solid transparent;margin-top:12px;transition:transform .15s ease,background .15s ease}
+  .btn:hover{transform:translateY(-1px)}
+  .btn-wa{background:#128c7e;color:#fff}
+  .btn-wa:hover{background:#0f7a6d}
+  .btn-alt{background:transparent;border-color:rgba(13,27,30,.25);color:var(--ink)}
+  .btn-alt:hover{background:rgba(13,27,30,.05)}
+  .fine{font-size:.78rem;color:var(--ink-soft);margin-top:14px;text-align:center}
+
+  /* footer */
+  footer{border-top:1px solid var(--line);padding:30px 0;font-size:.84rem;color:var(--ink-soft)}
+  .foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+  .brand{font-weight:850;letter-spacing:-.02em;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:8px}
+  .brand .mark{width:24px;height:24px;border-radius:7px;
+    background:linear-gradient(140deg,var(--red),var(--gold) 45%,var(--green))}
+
+  @media (max-width:760px){
+    .cols{grid-template-columns:1fr}
+    .book{position:static}
+    .photo{height:210px}
+  }
+</style>
+</head>
+<body>
+
+<div class="sample-bar">Sample page · <span>Kelloo demo</span> · this operator is fictional</div>
+
+<div class="wrap hero">
+  <div class="photo"><span class="tag">Tanji, The Gambia</span></div>
+
+  <div class="head">
+    <h1>Tanji Beach Guesthouse</h1>
+    <span class="badge">✓ Verified 9 Nov 2026</span>
+  </div>
+  <div class="meta">
+    <span>★★★★☆ 4.6 · 38 reviews</span>
+    <span>6 rooms</span>
+    <span>200 m from Tanji fish market</span>
+  </div>
+</div>
+
+<div class="wrap cols">
+  <!-- main column -->
+  <div>
+    <div class="card">
+      <h2>About</h2>
+      <p>
+        A six-room guesthouse run by the Ceesay family since 2014, two minutes' walk from Tanji's
+        fishing beach. Rooms are simple, clean and fan-cooled, with a shaded courtyard where
+        breakfast is served.
+      </p>
+      <p>
+        We work directly with the fish market and with two local birdwatching guides, so guests can
+        book a morning on the water without a middleman.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Prices — published, no surprises</h2>
+      <table>
+        <thead>
+          <tr><th>Room</th><th>Sleeps</th><th class="num">GMD</th><th class="num">GBP</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Standard double</td><td>2</td><td class="num">2,400</td><td class="num">£26</td></tr>
+          <tr><td>Family room</td><td>4</td><td class="num">3,900</td><td class="num">£42</td></tr>
+          <tr><td>Breakfast, per person</td><td>—</td><td class="num">250</td><td class="num">£3</td></tr>
+          <tr><td>Airport transfer (Banjul)</td><td>up to 4</td><td class="num">1,500</td><td class="num">£16</td></tr>
+        </tbody>
+      </table>
+      <p class="note">
+        Rates are per room per night, including tax. High season (Nov–Apr) — low-season rates are
+        roughly 30% lower. Conversions are indicative; you pay in dalasi.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>What Kelloo verified</h2>
+      <ul class="checks">
+        <li><span class="tick">✓</span><span>Business registration and tourism licence checked against the operator's ID</span></li>
+        <li><span class="tick">✓</span><span>Property visited in person by a Kelloo partner — photos are of the actual rooms</span></li>
+        <li><span class="tick">✓</span><span>Prices confirmed by the owner and published in full, including tax</span></li>
+        <li><span class="tick">✓</span><span>WhatsApp number confirmed as belonging to the owner</span></li>
+        <li><span class="tick">✓</span><span>No unresolved guest complaints on record</span></li>
+      </ul>
+      <p class="stamp">
+        Verified 9 November 2026 · re-checked every 12 months · report an issue and we investigate
+        within 48 hours.
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Getting there</h2>
+      <p>
+        Tanji is 35 km south of Banjul airport — about 50 minutes by road. Gelly-gelly from Serrekunda
+        costs roughly D50; a private transfer booked above is D1,500 and meets you at arrivals.
+      </p>
+    </div>
+  </div>
+
+  <!-- booking column -->
+  <div class="book">
+    <div class="card">
+      <div class="price">D 2,400 <small>/ night</small></div>
+      <p class="note" style="margin-top:6px">From £26 · breakfast optional</p>
+      <a class="btn btn-wa" href="https://wa.me/2200000000?text=Hello%2C%20I%20found%20you%20on%20Kelloo.%20Is%20a%20double%20room%20free%3F">
+        Book on WhatsApp
+      </a>
+      <a class="btn btn-alt" href="mailto:stay@example.com?subject=Booking%20enquiry%20-%20Tanji%20Beach%20Guesthouse">
+        Send an email instead
+      </a>
+      <p class="fine">Replies usually within 2 hours, 08:00–21:00 GMT.</p>
+    </div>
+
+    <div class="card">
+      <h2 style="font-size:.92rem">Why book direct?</h2>
+      <p style="font-size:.88rem">
+        No booking-site commission, so the owner keeps the full rate — and you get the same price or
+        better, paid in dalasi on arrival.
+      </p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <a class="brand" href="#"><span class="mark"></span>Kelloo</a>
+    <span>Sample page for demonstration. The operator, prices and reviews shown are fictional.
+    Replace with a real, verified business before publishing.</span>
+  </div>
+</footer>
+
+</body>
+</html>
