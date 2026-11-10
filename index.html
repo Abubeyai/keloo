@@ -237,6 +237,23 @@
   .final h2{color:#fff;font-size:clamp(1.7rem,3.4vw,2.4rem)}
   .final p{color:rgba(246,241,231,.82);max-width:56ch;margin:0 auto 28px}
   .final .micro{color:rgba(246,241,231,.55);margin-top:16px}
+  .contact-row{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    flex-wrap:wrap;margin-top:18px;
+  }
+  .contact-row .label{font-size:.88rem;color:rgba(246,241,231,.7)}
+  .contact-row code{
+    font-size:.95rem;font-weight:700;letter-spacing:.01em;
+    background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);
+    padding:7px 12px;border-radius:9px;color:#fff;user-select:all;
+  }
+  .btn-copy{
+    padding:8px 16px;border-radius:999px;font-weight:800;font-size:.85rem;
+    background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.25);
+    cursor:pointer;transition:background .15s ease;
+  }
+  .btn-copy:hover{background:rgba(255,255,255,.24)}
+  .btn-copy.done{background:var(--green);border-color:var(--green)}
 
   /* ---------- footer ---------- */
   footer{border-top:1px solid var(--line);padding:44px 0;font-size:.88rem;color:var(--ink-soft)}
@@ -528,8 +545,18 @@
         Google Maps pin. We'll send back a one-page audit of what is costing you bookings — free,
         no obligation.
       </p>
-      <a class="btn btn-light" href="mailto:abubeyai@gmail.com?subject=Free%20listing%20audit&body=Business%20name%3A%0ALocation%3A%0ALink%20to%20listing%3A%0APhone%20or%20WhatsApp%3A">Request my free audit</a>
-      <p class="micro">Opens your email app with the details filled in — or write to abubeyai@gmail.com directly.</p>
+      <a class="btn btn-light" href="mailto:abubeyai@gmail.com?subject=Free%20listing%20audit&body=Business%20name%3A%0ALocation%3A%0ALink%20to%20listing%3A%0APhone%20or%20WhatsApp%3A">Email us for a free audit</a>
+
+      <div class="contact-row">
+        <span class="label">No email app set up? Copy our address:</span>
+        <code id="email-text">abubeyai@gmail.com</code>
+        <button type="button" class="btn-copy" id="copy-email">Copy</button>
+      </div>
+
+      <p class="micro">We reply to every enquiry within one working day.</p>
+      <p class="micro" style="margin-top:10px">
+        <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=abubeyai@gmail.com&amp;su=Free%20listing%20audit&amp;body=Business%20name%3A%0ALocation%3A%0ALink%20to%20listing%3A" target="_blank" rel="noopener" style="color:rgba(246,241,231,.85);text-decoration:underline">Or open Gmail in your browser →</a>
+      </p>
     </div>
   </div>
 </section>
@@ -552,17 +579,55 @@
   (function () {
     var toggle = document.getElementById('navtoggle');
     var links = document.getElementById('navlinks');
-    if (!toggle || !links) return;
-    toggle.addEventListener('click', function () {
-      var open = links.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-    links.addEventListener('click', function (e) {
-      if (e.target.tagName === 'A') {
-        links.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
-      }
-    });
+    if (toggle && links) {
+      toggle.addEventListener('click', function () {
+        var open = links.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+      links.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') {
+          links.classList.remove('open');
+          toggle.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
+    /* Copy-to-clipboard fallback: mailto: links do nothing on devices with
+       no default mail app configured, so give visitors a way through. */
+    var copyBtn = document.getElementById('copy-email');
+    var emailText = document.getElementById('email-text');
+    if (copyBtn && emailText) {
+      copyBtn.addEventListener('click', function () {
+        var email = emailText.textContent.trim();
+
+        function done() {
+          copyBtn.textContent = 'Copied';
+          copyBtn.classList.add('done');
+          window.setTimeout(function () {
+            copyBtn.textContent = 'Copy';
+            copyBtn.classList.remove('done');
+          }, 2000);
+        }
+
+        function legacyCopy() {
+          var ta = document.createElement('textarea');
+          ta.value = email;
+          ta.setAttribute('readonly', '');
+          ta.style.position = 'absolute';
+          ta.style.left = '-9999px';
+          document.body.appendChild(ta);
+          ta.select();
+          try { document.execCommand('copy'); done(); } catch (err) { /* ignore */ }
+          document.body.removeChild(ta);
+        }
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(email).then(done, legacyCopy);
+        } else {
+          legacyCopy();
+        }
+      });
+    }
   })();
 </script>
 </body>
