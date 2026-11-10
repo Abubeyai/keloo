@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kelloo — Book The Gambia direct. Verified.</title>
+<meta name="description" content="Kelloo turns small Gambian guesthouses, guides and drivers into trusted, directly-bookable businesses. Verified pages, honest prices, WhatsApp booking.">
+<meta property="og:title" content="Kelloo — Book The Gambia direct. Verified.">
+<meta property="og:description" content="Verified pages, honest price cards and WhatsApp booking for The Gambia's small tourism businesses.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐚</text></svg>">
+<style>
+  :root{
+    --ink:#0d1b1e;
+    --ink-soft:#31454a;
+    --sand:#f6f1e7;
+    --sand-2:#ece4d5;
+    --white:#ffffff;
+    --red:#ce1126;
+    --blue:#0c1c8c;
+    --green:#3a7728;
+    --gold:#c9922c;
+    --line:rgba(13,27,30,.12);
+    --shadow:0 1px 2px rgba(13,27,30,.06),0 12px 32px -12px rgba(13,27,30,.18);
+    --radius:16px;
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    color:var(--ink);
+    background:var(--sand);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{line-height:1.15;margin:0 0 .5em;letter-spacing:-.02em}
+  p{margin:0 0 1em}
+  a{color:inherit}
+  img{max-width:100%;display:block}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  section{padding:88px 0}
+  .eyebrow{
+    display:inline-block;font-size:.74rem;font-weight:700;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--green);margin-bottom:14px;
+  }
+  .lede{font-size:1.14rem;color:var(--ink-soft);max-width:62ch}
+
+  /* ---------- nav ---------- */
+  header.nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(246,241,231,.86);
+    backdrop-filter:saturate(160%) blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.03em;font-size:1.16rem;text-decoration:none}
+  .brand .mark{
+    width:30px;height:30px;border-radius:9px;flex:0 0 auto;
+    background:linear-gradient(140deg,var(--red),var(--gold) 45%,var(--green) 100%);
+    box-shadow:inset 0 0 0 2px rgba(255,255,255,.35);
+  }
+  .nav-links{display:flex;align-items:center;gap:26px;font-size:.94rem;font-weight:600}
+  .nav-links a{text-decoration:none;color:var(--ink-soft)}
+  .nav-links a:hover{color:var(--ink)}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:13px 22px;border-radius:999px;font-weight:700;font-size:.95rem;
+    text-decoration:none;border:1px solid transparent;cursor:pointer;
+    transition:transform .15s ease,box-shadow .15s ease,background .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px)}
+  .btn-primary{background:var(--ink);color:var(--sand);box-shadow:var(--shadow)}
+  .btn-primary:hover{background:#16323a}
+  .btn-ghost{background:transparent;border-color:rgba(13,27,30,.28);color:var(--ink)}
+  .btn-ghost:hover{background:rgba(13,27,30,.05)}
+  .btn-light{background:var(--sand);color:var(--ink)}
+  .nav-toggle{display:none;background:none;border:0;font-size:1.5rem;line-height:1;cursor:pointer}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;overflow:hidden;
+    background:
+      radial-gradient(900px 420px at 82% -10%,rgba(201,146,44,.28),transparent 62%),
+      radial-gradient(700px 380px at 4% 8%,rgba(58,119,40,.18),transparent 60%),
+      linear-gradient(180deg,var(--sand) 0%,var(--sand-2) 100%);
+    padding:96px 0 76px;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:auto 0 0 0;height:1px;background:var(--line);
+  }
+  .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+  .hero h1{font-size:clamp(2.4rem,5.2vw,3.9rem);font-weight:850;letter-spacing:-.035em}
+  .hero h1 em{font-style:normal;color:var(--green)}
+  .hero .lede{margin-bottom:28px}
+  .cta-row{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+  .micro{font-size:.86rem;color:var(--ink-soft);margin-top:14px}
+
+  .card-mock{
+    background:var(--white);border-radius:20px;box-shadow:var(--shadow);
+    border:1px solid var(--line);overflow:hidden;transform:rotate(-1.1deg);
+  }
+  .card-mock .bar{display:flex;gap:6px;padding:12px 14px;border-bottom:1px solid var(--line);background:#fbf8f1}
+  .card-mock .dot{width:9px;height:9px;border-radius:50%;background:var(--line)}
+  .card-mock .body{padding:18px}
+  .mock-photo{
+    height:132px;border-radius:12px;margin-bottom:14px;
+    background:linear-gradient(135deg,#1f4c56,#3a7728 55%,#c9922c);
+    position:relative;overflow:hidden;
+  }
+  .mock-photo::after{
+    content:"";position:absolute;inset:auto -10% -40% -10%;height:80%;
+    background:radial-gradient(ellipse at center,rgba(255,255,255,.35),transparent 60%);
+  }
+  .mock-row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px}
+  .mock-title{font-weight:800;font-size:1.02rem}
+  .badge-verified{
+    display:inline-flex;align-items:center;gap:6px;
+    background:rgba(58,119,40,.1);color:var(--green);
+    border:1px solid rgba(58,119,40,.28);
+    padding:5px 11px;border-radius:999px;font-size:.74rem;font-weight:800;letter-spacing:.02em;
+    white-space:nowrap;
+  }
+  .mock-line{height:9px;border-radius:99px;background:var(--sand-2);margin-bottom:8px}
+  .mock-line.w70{width:70%}
+  .mock-line.w45{width:45%}
+  .mock-price{display:flex;justify-content:space-between;align-items:baseline;margin-top:14px;padding-top:14px;border-top:1px dashed var(--line)}
+  .mock-price b{font-size:1.28rem;letter-spacing:-.02em}
+  .mock-price span{font-size:.78rem;color:var(--ink-soft)}
+
+  /* ---------- stats ---------- */
+  .stats{border-bottom:1px solid var(--line);background:var(--white);padding:0}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+  .stat{padding:30px 24px;border-right:1px solid var(--line)}
+  .stat:last-child{border-right:0}
+  .stat b{display:block;font-size:1.85rem;font-weight:850;letter-spacing:-.03em;line-height:1.1}
+  .stat span{font-size:.82rem;color:var(--ink-soft);font-weight:600}
+
+  /* ---------- generic blocks ---------- */
+  .section-head{max-width:720px;margin-bottom:48px}
+  .section-head h2{font-size:clamp(1.8rem,3.2vw,2.5rem);font-weight:830}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .tile{
+    background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+    padding:28px;box-shadow:0 1px 2px rgba(13,27,30,.04);
+  }
+  .tile h3{font-size:1.08rem;font-weight:800;margin-bottom:8px}
+  .tile p{margin:0;color:var(--ink-soft);font-size:.96rem}
+  .tile .num{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:34px;height:34px;border-radius:10px;margin-bottom:16px;
+    background:rgba(206,17,38,.09);color:var(--red);font-weight:850;font-size:.92rem;
+  }
+  .tile.green .num{background:rgba(58,119,40,.1);color:var(--green)}
+  .tile.gold .num{background:rgba(201,146,44,.13);color:#8a6316}
+
+  /* ---------- list block ---------- */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .checklist{list-style:none;padding:0;margin:0 0 26px;display:grid;gap:14px}
+  .checklist li{display:flex;gap:13px;align-items:flex-start;font-size:.99rem}
+  .checklist .tick{
+    flex:0 0 auto;width:23px;height:23px;border-radius:50%;margin-top:2px;
+    background:rgba(58,119,40,.12);color:var(--green);
+    display:grid;place-items:center;font-size:.72rem;font-weight:900;
+  }
+  .panel{
+    background:linear-gradient(160deg,#10242a,#16323a);
+    color:var(--sand);border-radius:20px;padding:36px;box-shadow:var(--shadow);
+  }
+  .panel h3{color:#fff;font-size:1.2rem;margin-bottom:14px}
+  .panel p{color:rgba(246,241,231,.82);font-size:.96rem}
+  .panel .quote{
+    border-left:3px solid var(--gold);padding-left:16px;margin:20px 0 0;
+    font-style:italic;color:rgba(246,241,231,.9);font-size:.95rem;
+  }
+  .panel .quote cite{display:block;font-style:normal;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:rgba(246,241,231,.55);margin-top:10px}
+
+  /* ---------- pricing ---------- */
+  .pricing{background:var(--sand-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .price-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+  .price{
+    background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+    padding:30px;display:flex;flex-direction:column;position:relative;
+  }
+  .price.featured{border:2px solid var(--ink);box-shadow:var(--shadow);transform:translateY(-6px)}
+  .price .tag{
+    position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+    background:var(--ink);color:var(--sand);font-size:.7rem;font-weight:800;
+    letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:999px;white-space:nowrap;
+  }
+  .price h3{font-size:1.02rem;font-weight:800;margin-bottom:4px}
+  .price .for{font-size:.84rem;color:var(--ink-soft);margin-bottom:18px;min-height:2.6em}
+  .price .amount{font-size:2.1rem;font-weight:850;letter-spacing:-.04em;line-height:1}
+  .price .amount small{font-size:.82rem;font-weight:600;letter-spacing:0;color:var(--ink-soft)}
+  .price .setup{font-size:.84rem;color:var(--ink-soft);margin:6px 0 20px}
+  .price ul{list-style:none;padding:0;margin:0 0 24px;display:grid;gap:10px;font-size:.9rem}
+  .price li{display:flex;gap:9px;align-items:flex-start;color:var(--ink-soft)}
+  .price li::before{content:"✓";color:var(--green);font-weight:900;font-size:.82rem;margin-top:2px}
+  .price .btn{margin-top:auto;width:100%}
+
+  /* ---------- steps ---------- */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;counter-reset:step}
+  .step{position:relative;padding-top:8px}
+  .step .n{
+    counter-increment:step;display:grid;place-items:center;
+    width:42px;height:42px;border-radius:12px;background:var(--ink);color:var(--sand);
+    font-weight:850;margin-bottom:16px;
+  }
+  .step .n::before{content:counter(step)}
+  .step h3{font-size:1.02rem;font-weight:800}
+  .step p{color:var(--ink-soft);font-size:.94rem;margin:0}
+
+  /* ---------- faq ---------- */
+  .faq{max-width:820px}
+  details{
+    background:var(--white);border:1px solid var(--line);border-radius:14px;
+    padding:18px 22px;margin-bottom:12px;
+  }
+  details[open]{box-shadow:0 1px 2px rgba(13,27,30,.04)}
+  summary{
+    cursor:pointer;font-weight:750;font-size:.99rem;list-style:none;
+    display:flex;justify-content:space-between;align-items:center;gap:16px;
+  }
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-weight:400;font-size:1.3rem;color:var(--ink-soft);flex:0 0 auto}
+  details[open] summary::after{content:"–"}
+  details p{margin:12px 0 0;color:var(--ink-soft);font-size:.95rem}
+
+  /* ---------- final cta ---------- */
+  .final{
+    background:linear-gradient(150deg,#10242a,#16323a 60%,#1d4a3a);
+    color:var(--sand);text-align:center;border-radius:22px;
+    padding:64px 32px;box-shadow:var(--shadow);
+  }
+  .final h2{color:#fff;font-size:clamp(1.7rem,3.4vw,2.4rem)}
+  .final p{color:rgba(246,241,231,.82);max-width:56ch;margin:0 auto 28px}
+  .final .micro{color:rgba(246,241,231,.55);margin-top:16px}
+
+  /* ---------- footer ---------- */
+  footer{border-top:1px solid var(--line);padding:44px 0;font-size:.88rem;color:var(--ink-soft)}
+  .foot-inner{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
+  .foot-inner a{text-decoration:none;color:var(--ink-soft)}
+  .foot-inner a:hover{color:var(--ink)}
+  .flag{
+    display:inline-block;width:26px;height:18px;border-radius:3px;overflow:hidden;
+    box-shadow:inset 0 0 0 1px rgba(13,27,30,.15);vertical-align:middle;
+    background:linear-gradient(180deg,var(--red) 0 33.3%,var(--white) 33.3% 40%,var(--blue) 40% 60%,var(--white) 60% 66.6%,var(--green) 66.6% 100%);
+  }
+
+  @media (max-width:900px){
+    .hero-grid,.split,.price-grid,.grid-3,.steps{grid-template-columns:1fr}
+    .stats-grid{grid-template-columns:repeat(2,1fr)}
+    .stat:nth-child(2){border-right:0}
+    .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid var(--line)}
+    .card-mock{transform:none}
+    .price.featured{transform:none}
+    section{padding:64px 0}
+    .nav-links{display:none}
+    .nav-toggle{display:block}
+    .nav-links.open{
+      display:flex;flex-direction:column;position:absolute;top:68px;left:0;right:0;
+      background:var(--sand);border-bottom:1px solid var(--line);padding:20px 24px;gap:16px;
+    }
+  }
+  @media (max-width:520px){
+    .stat{padding:22px 18px}
+    .final{padding:48px 22px}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top"><span class="mark"></span>Kelloo</a>
+    <nav class="nav-links" id="navlinks">
+      <a href="#problem">Why</a>
+      <a href="#offer">What you get</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-primary" href="#start">Get a free audit</a>
+    </nav>
+    <button class="nav-toggle" id="navtoggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">The Gambia · Winter season 2026–27</span>
+      <h1>Book The Gambia <em>direct</em>.<br>Verified.</h1>
+      <p class="lede">
+        Guests can't tell a licensed guide from a hustler, so they stay inside the resort and
+        spend nothing. Kelloo gives small guesthouses, guides and drivers a verified,
+        directly-bookable page — with honest prices and WhatsApp booking.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#start">Get your free listing audit</a>
+        <a class="btn btn-ghost" href="#offer">See what's included</a>
+      </div>
+      <p class="micro">No app. No commission on your first bookings. Set up in 72 hours.</p>
+    </div>
+
+    <div class="card-mock" aria-hidden="true">
+      <div class="bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <div class="body">
+        <div class="mock-photo"></div>
+        <div class="mock-row">
+          <span class="mock-title">Tanji Beach Guesthouse</span>
+          <span class="badge-verified">✓ Verified</span>
+        </div>
+        <div class="mock-line w70"></div>
+        <div class="mock-line w45"></div>
+        <div class="mock-price">
+          <b>D 2,400 <span>/ night</span></b>
+          <span>Book on WhatsApp</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<div class="stats">
+  <div class="wrap stats-grid">
+    <div class="stat"><b>120,713</b><span>tourist arrivals, H1 2026 (+5.4%)</span></div>
+    <div class="stat"><b>53</b><span>flights per week into Banjul</span></div>
+    <div class="stat"><b>Nov–Apr</b><span>the season operators earn in</span></div>
+    <div class="stat"><b>2.5M</b><span>people, 57% urban</span></div>
+  </div>
+</div>
+
+<!-- ============ PROBLEM ============ -->
+<section id="problem">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">The gap</span>
+      <h2>Arrivals are up. The money still stops at the hotel gate.</h2>
+      <p class="lede">
+        The Point newspaper put it plainly in November 2026: tourists come for peace, but they
+        want it in service delivery too — <em>“fair treatment without harassment or scams.”</em>
+        The value leaks because nobody can prove who is legitimate.
+      </p>
+    </div>
+
+    <div class="grid-3">
+      <div class="tile">
+        <span class="num">01</span>
+        <h3>Guests can't verify anyone</h3>
+        <p>A visitor lands with no way to tell a licensed guide from a beach hustler. So they don't book anything — and the trip stays inside the resort.</p>
+      </div>
+      <div class="tile green">
+        <span class="num">02</span>
+        <h3>Good operators are invisible</h3>
+        <p>Excellent small guesthouses and guides have no page, no prices and no reviews. They lose the booking to whoever shouted loudest at the airport.</p>
+      </div>
+      <div class="tile gold">
+        <span class="num">03</span>
+        <h3>No price = no trust</h3>
+        <p>Hidden prices read as a scam. Operators who publish an honest rate card convert far better — but almost none of them do.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OFFER ============ -->
+<section id="offer" style="background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap split">
+    <div>
+      <span class="eyebrow">The fix</span>
+      <h2>Everything a small operator needs to be trusted and booked.</h2>
+      <ul class="checklist">
+        <li><span class="tick">✓</span><span><strong>A verified trust page</strong> — real photos, your story, licence and ID checked, mobile-first and fast on 3G.</span></li>
+        <li><span class="tick">✓</span><span><strong>Honest published prices</strong> — a clear rate card in dalasi and GBP, the strongest anti-scam signal there is.</span></li>
+        <li><span class="tick">✓</span><span><strong>WhatsApp booking</strong> — one tap, no app, no card gateway required. Deposits optional via Wave or Stripe.</span></li>
+        <li><span class="tick">✓</span><span><strong>Google Business &amp; Maps</strong> — so you appear when someone searches “guesthouse near Tanji”.</span></li>
+        <li><span class="tick">✓</span><span><strong>OTA clean-up</strong> — your Booking.com listing made consistent with your real prices.</span></li>
+      </ul>
+      <a class="btn btn-primary" href="#start">Get your free audit</a>
+    </div>
+
+    <div class="panel">
+      <h3>Why trust is the whole product</h3>
+      <p>
+        Every marketplace in West African tourism starts by chasing demand. That costs years and
+        capital. Kelloo starts on the supply side: we make good operators provably legitimate,
+        and charge them a small monthly fee to stay that way.
+      </p>
+      <p>
+        No inventory. No hotel licences. No local payroll. A laptop, a partner on the ground,
+        and a standard we refuse to break.
+      </p>
+      <blockquote class="quote">
+        “We must move from counting heads to adding value: longer stays, higher spending per tourist.”
+        <cite>The Point, 5 November 2026</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Pricing</span>
+      <h2>Priced for a guesthouse, not a hotel group.</h2>
+      <p class="lede">One direct booking usually covers three months of Kelloo. Setup is paid up front; monthly is cancel-anytime.</p>
+    </div>
+
+    <div class="price-grid">
+      <div class="price">
+        <h3>Starter</h3>
+        <p class="for">Guides, drivers and single-room stays</p>
+        <div class="amount">$19 <small>/ month</small></div>
+        <p class="setup">+ $149 one-time setup</p>
+        <ul>
+          <li>Verification check &amp; badge</li>
+          <li>One-page trust site</li>
+          <li>WhatsApp booking button</li>
+          <li>Rate card in GMD + GBP</li>
+        </ul>
+        <a class="btn btn-ghost" href="#start">Start with Starter</a>
+      </div>
+
+      <div class="price featured">
+        <span class="tag">Most popular</span>
+        <h3>Growth</h3>
+        <p class="for">Guesthouses with 4–15 rooms</p>
+        <div class="amount">$49 <small>/ month</small></div>
+        <p class="setup">+ $299 one-time setup</p>
+        <ul>
+          <li>Everything in Starter</li>
+          <li>Google Business Profile &amp; Maps pin</li>
+          <li>Booking.com listing clean-up</li>
+          <li>Photo editing (up to 10 images)</li>
+          <li>Monthly performance snapshot</li>
+        </ul>
+          <a class="btn btn-primary" href="#start">Get the free audit</a>
+      </div>
+
+      <div class="price">
+        <h3>Group</h3>
+        <p class="for">Tour operators &amp; multi-property hosts</p>
+        <div class="amount">$129 <small>/ month</small></div>
+        <p class="setup">+ $699 one-time setup</p>
+        <ul>
+          <li>Up to 5 properties or tours</li>
+          <li>Multi-language pages (EN/FR/NL)</li>
+          <li>Booking links &amp; UTM tracking</li>
+          <li>Priority WhatsApp support</li>
+        </ul>
+        <a class="btn btn-ghost" href="#start">Talk to us</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STEPS ============ -->
+<section id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">How it works</span>
+      <h2>Three steps. Seventy-two hours.</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="n"></div>
+        <h3>Send us what you have</h3>
+        <p>A phone number, a few photos, and your prices. That's the whole ask. No paperwork to chase.</p>
+      </div>
+      <div class="step">
+        <div class="n"></div>
+        <h3>We verify and build</h3>
+        <p>We check your licence or ID, clean the photos, write the page and publish it with a verification badge.</p>
+      </div>
+      <div class="step">
+        <div class="n"></div>
+        <h3>Guests book direct</h3>
+        <p>Your page and Maps listing start taking WhatsApp enquiries. You keep the guest relationship — and the money.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" style="background:var(--white);border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Questions</span>
+      <h2>Straight answers.</h2>
+    </div>
+
+    <div class="faq">
+      <details open>
+        <summary>What exactly does “verified” mean?</summary>
+        <p>We confirm the business exists, that the person we're dealing with controls it, and that they hold whatever licence applies to their category (tourism guide licence, guesthouse registration, or a national ID for drivers). We publish what we checked and the date. We do not guarantee a stay — we verify identity and licence, and we remove anyone who misbehaves.</p>
+      </details>
+      <details>
+        <summary>Do I have to pay commission on bookings?</summary>
+        <p>No. Starter and Growth are flat monthly fees. If you later want Kelloo to send you guaranteed bookings, we offer an optional 5% on bookings we route — but it's opt-in, never automatic.</p>
+      </details>
+      <details>
+        <summary>I don't have a website or good photos.</summary>
+        <p>That's the normal case, and it's fine. We build the page from what you have — phone photos included — and edit up to ten images on the Growth plan.</p>
+      </details>
+      <details>
+        <summary>Can I take payment without a card machine?</summary>
+        <p>Yes. Most bookings in The Gambia settle in cash or by Wave. Your page can show a Wave number for deposits and a Stripe link if you want card payments from European guests.</p>
+      </details>
+      <details>
+        <summary>Is this only for the winter season?</summary>
+        <p>The season is when operators have cash, so that's when we sell. The page keeps working all year, and annual plans are discounted before the season ends.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ START ============ -->
+<section id="start">
+  <div class="wrap">
+    <div class="final">
+      <h2>Send your listing. Get a free audit in 48 hours.</h2>
+      <p>
+        Tell us your business name and paste a link to your Facebook page, Booking.com listing or
+        Google Maps pin. We'll send back a one-page audit of what is costing you bookings — free,
+        no obligation.
+      </p>
+      <a class="btn btn-light" href="mailto:abubeyai@gmail.com?subject=Free%20listing%20audit&body=Business%20name%3A%0ALocation%3A%0ALink%20to%20listing%3A%0APhone%20or%20WhatsApp%3A">Request my free audit</a>
+      <p class="micro">Opens your email app with the details filled in — or write to abubeyai@gmail.com directly.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div>
+      <a class="brand" href="#top" style="font-size:1rem"><span class="mark"></span>Kelloo</a>
+      <p style="margin:10px 0 0">Verified direct booking for The Gambia's small tourism businesses. <span class="flag" title="Flag of The Gambia"></span></p>
+    </div>
+    <div style="text-align:right">
+      <p style="margin:0 0 6px"><a href="mailto:abubeyai@gmail.com">abubeyai@gmail.com</a></p>
+      <p style="margin:0 0 6px;font-size:.82rem">We reply to every enquiry within one working day.</p>
+      <p style="margin:12px 0 0;font-size:.78rem">© 2026 Kelloo. Independent; not affiliated with the Gambia Tourism Board.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var toggle = document.getElementById('navtoggle');
+    var links = document.getElementById('navlinks');
+    if (!toggle || !links) return;
+    toggle.addEventListener('click', function () {
+      var open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    links.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  })();
+</script>
+</body>
+</html>
