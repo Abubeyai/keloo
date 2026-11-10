@@ -255,6 +255,34 @@
   .btn-copy:hover{background:rgba(255,255,255,.24)}
   .btn-copy.done{background:var(--green);border-color:var(--green)}
 
+  /* audit request form */
+  .audit-form{max-width:520px;margin:26px auto 0;text-align:left}
+  .field{margin-bottom:14px}
+  .field label{display:block;font-size:.8rem;font-weight:700;color:rgba(246,241,231,.82);margin-bottom:6px}
+  .field .req{color:var(--gold)}
+  .field .opt{font-weight:500;color:rgba(246,241,231,.55)}
+  .field input,.field textarea{
+    width:100%;padding:12px 14px;border-radius:10px;
+    border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.08);
+    color:#fff;font:inherit;font-size:.95rem;
+  }
+  .field input::placeholder,.field textarea::placeholder{color:rgba(246,241,231,.42)}
+  .field input:focus,.field textarea:focus{outline:2px solid rgba(201,146,44,.75);outline-offset:1px}
+  .field textarea{resize:vertical;min-height:82px}
+  .hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+  .form-note{font-size:.78rem;color:rgba(246,241,231,.6);margin:12px 0 0;text-align:center}
+  #thanks{display:none}
+  #thanks:target{
+    display:block;margin-top:22px;padding:18px;text-align:left;
+    background:rgba(58,119,40,.22);border:1px solid rgba(58,119,40,.5);border-radius:12px;
+  }
+  #thanks h3{color:#fff;font-size:1.02rem;margin:0 0 6px}
+  #thanks p{margin:0;color:rgba(246,241,231,.85);font-size:.92rem}
+  .final code{
+    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
+    padding:5px 10px;border-radius:8px;font-weight:700;color:#fff;user-select:all;
+  }
+
   /* ---------- footer ---------- */
   footer{border-top:1px solid var(--line);padding:44px 0;font-size:.88rem;color:var(--ink-soft)}
   .foot-inner{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
@@ -539,23 +567,62 @@
 <section id="start">
   <div class="wrap">
     <div class="final">
-      <h2>Send your listing. Get a free audit in 48 hours.</h2>
+      <h2>Get a free audit in one working day.</h2>
       <p>
-        Tell us your business name and paste a link to your Facebook page, Booking.com listing or
-        Google Maps pin. We'll send back a one-page audit of what is costing you bookings — free,
-        no obligation.
+        Tell us your business name and a link to your Facebook page, Booking.com listing or Google
+        Maps pin. We'll send back a one-page audit of what is costing you bookings — free, no
+        obligation.
       </p>
-      <a class="btn btn-light" href="mailto:abubeyai@gmail.com?subject=Free%20listing%20audit&body=Business%20name%3A%0ALocation%3A%0ALink%20to%20listing%3A%0APhone%20or%20WhatsApp%3A">Email us for a free audit</a>
 
-      <div class="contact-row">
-        <span class="label">No email app set up? Copy our address:</span>
-        <code id="email-text">abubeyai@gmail.com</code>
-        <button type="button" class="btn-copy" id="copy-email">Copy</button>
+      <form action="https://formspree.io/f/xaeerkek" method="POST" class="audit-form">
+        <div class="field">
+          <label for="f-business">Business name <span class="req">*</span></label>
+          <input id="f-business" name="business_name" type="text" required placeholder="e.g. Tanji Beach Guesthouse">
+        </div>
+
+        <div class="field">
+          <label for="f-area">Area or town <span class="req">*</span></label>
+          <input id="f-area" name="area" type="text" required placeholder="e.g. Bijilo, or Barra">
+        </div>
+
+        <div class="field">
+          <label for="f-link">Link to your listing <span class="opt">(Facebook, Booking.com or Google Maps)</span></label>
+          <input id="f-link" name="listing_link" type="text" placeholder="facebook.com/yourpage">
+        </div>
+
+        <div class="field">
+          <label for="f-email">Your email <span class="req">*</span></label>
+          <input id="f-email" name="email" type="email" required placeholder="you@example.com">
+        </div>
+
+        <div class="field">
+          <label for="f-whatsapp">WhatsApp number <span class="opt">(optional)</span></label>
+          <input id="f-whatsapp" name="whatsapp" type="tel" placeholder="+220 ...">
+        </div>
+
+        <div class="field">
+          <label for="f-notes">Anything else? <span class="opt">(optional)</span></label>
+          <textarea id="f-notes" name="notes" rows="3" placeholder="What is costing you bookings right now?"></textarea>
+        </div>
+
+        <!-- Formspree settings -->
+        <input type="hidden" name="_subject" value="Kelloo — new free-audit request">
+        <input type="hidden" name="_next" value="https://abubeyai.github.io/kelloo/#thanks">
+        <!-- spam honeypot: real people never fill this -->
+        <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+        <button type="submit" class="btn btn-light" style="width:100%">Request my free audit</button>
+        <p class="form-note">Free, no obligation. One-page audit back within one working day.</p>
+      </form>
+
+      <div id="thanks">
+        <h3>That's in — thank you.</h3>
+        <p>Your request has been received. We'll reply within one working day.</p>
       </div>
 
-      <p class="micro">We reply to every enquiry within one working day.</p>
-      <p class="micro" style="margin-top:10px">
-        <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=abubeyai@gmail.com&amp;su=Free%20listing%20audit&amp;body=Business%20name%3A%0ALocation%3A%0ALink%20to%20listing%3A" target="_blank" rel="noopener" style="color:rgba(246,241,231,.85);text-decoration:underline">Or open Gmail in your browser →</a>
+      <p class="micro" style="margin-top:22px">
+        Prefer email? <code id="email-text">abubeyai@gmail.com</code>
+        <button type="button" class="btn-copy" id="copy-email">Copy</button>
       </p>
     </div>
   </div>
